@@ -173,8 +173,58 @@ object DefaultThemes {
     )
 
 
+    val aurora = MyColors(
+        id = "aurora",
+        name = "Aurora",
+        primary = Color(0xFF7C6CFF),
+        primaryVariant = Color(0xFF9A8DFF),
+        onPrimary = Color(0xFFFFFFFF),
+        secondary = Color(0xFF22D3EE),
+        secondaryVariant = Color(0xFF67E8F9),
+        onSecondary = Color(0xFF06222B),
+        background = Color(0xFF0E1016),
+        onBackground = Color(0xFFE6E8F0),
+        surface = Color(0xFF171A23),
+        onSurface = Color(0xFFD9DCE8),
+        error = Color(0xFFFF5A72),
+        onError = Color(0xFFFFFFFF),
+        success = Color(0xFF34D399),
+        onSuccess = Color(0xFF04281C),
+        warning = Color(0xFFFBBF24),
+        onWarning = Color(0xFF2A1D00),
+        info = Color(0xFF38BDF8),
+        onInfo = Color(0xFF06222B),
+        isLight = false
+    )
+
+    val aurora_light = MyColors(
+        id = "aurora_light",
+        name = "Aurora Light",
+        primary = Color(0xFF6A5AF9),
+        primaryVariant = Color(0xFF5546D6),
+        onPrimary = Color(0xFFFFFFFF),
+        secondary = Color(0xFF0891B2),
+        secondaryVariant = Color(0xFF0E7490),
+        onSecondary = Color(0xFFFFFFFF),
+        background = Color(0xFFF7F8FC),
+        onBackground = Color(0xFF1A1D29),
+        surface = Color(0xFFFFFFFF),
+        onSurface = Color(0xFF1A1D29),
+        error = Color(0xFFE5384F),
+        onError = Color(0xFFFFFFFF),
+        success = Color(0xFF16A36A),
+        onSuccess = Color(0xFFFFFFFF),
+        warning = Color(0xFFF59E0B),
+        onWarning = Color(0xFF2A1D00),
+        info = Color(0xFF0EA5E9),
+        onInfo = Color(0xFFFFFFFF),
+        isLight = true
+    )
+
     fun getAll(): List<MyColors> {
         return listOf(
+            aurora,
+            aurora_light,
             dark,
             light,
             obsidian,
@@ -185,6 +235,6 @@ object DefaultThemes {
         )
     }
 
-    fun getDefaultDark() = dark
-    fun getDefaultLight() = light
+    fun getDefaultDark() = aurora
+    fun getDefaultLight() = aurora_light
 }
