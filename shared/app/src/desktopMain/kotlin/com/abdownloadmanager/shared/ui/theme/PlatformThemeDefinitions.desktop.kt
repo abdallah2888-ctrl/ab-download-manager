@@ -30,11 +30,11 @@ actual fun myPlatformScrollbarStyle(): ScrollbarStyle {
     val shape = RoundedCornerShape(4.dp)
     return ScrollbarStyle(
         minimalHeight = 16.dp,
-        thickness = 6.dp,
+        thickness = 8.dp,
         thumbStyle = ThumbStyle(
             shape = shape,
-            unhoverColor = myColors.onBackground / 10,
-            hoverColor = myColors.onBackground / 30,
+            unhoverColor = myColors.primary / 55,
+            hoverColor = myColors.primary,
         ),
         trackStyle = TrackStyle(
             unhoverColor = Color.Transparent,

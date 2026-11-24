@@ -25,7 +25,7 @@ class ThemeManager(
         val defaultThemes = DefaultThemes.getAll()
         val DefaultDarkTheme = DefaultThemes.getDefaultDark()
         val DefaultLightTheme = DefaultThemes.getDefaultLight()
-        val DefaultTheme = DefaultDarkTheme
+        val DefaultTheme = DefaultLightTheme
         val DEFAULT_THEME_ID = DefaultTheme.id
         val systemThemeInfo = ThemeInfo(
             id = "system",

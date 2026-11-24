@@ -221,8 +221,33 @@ object DefaultThemes {
         isLight = true
     )
 
+    val nucleus = MyColors(
+        id = "nucleus",
+        name = "Nucleus",
+        primary = Color(0xFF16A34A),
+        primaryVariant = Color(0xFF15803D),
+        onPrimary = Color(0xFFFFFFFF),
+        secondary = Color(0xFF4ADE80),
+        secondaryVariant = Color(0xFF22C55E),
+        onSecondary = Color(0xFF052E16),
+        background = Color(0xFFF1F5F2),
+        onBackground = Color(0xFF1F2A24),
+        surface = Color(0xFFFFFFFF),
+        onSurface = Color(0xFF1F2A24),
+        error = Color(0xFFE5384F),
+        onError = Color(0xFFFFFFFF),
+        success = Color(0xFF16A34A),
+        onSuccess = Color(0xFFFFFFFF),
+        warning = Color(0xFFF59E0B),
+        onWarning = Color(0xFF2A1D00),
+        info = Color(0xFF7C5CD6),
+        onInfo = Color(0xFFFFFFFF),
+        isLight = true
+    )
+
     fun getAll(): List<MyColors> {
         return listOf(
+            nucleus,
             aurora,
             aurora_light,
             dark,
@@ -236,5 +261,5 @@ object DefaultThemes {
     }
 
     fun getDefaultDark() = aurora
-    fun getDefaultLight() = aurora_light
+    fun getDefaultLight() = nucleus
 }
