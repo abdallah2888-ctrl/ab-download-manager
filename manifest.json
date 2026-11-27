@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "NovaGet Downloader Bridge",
+  "version": "2.0.0",
+  "description": "التقاط التحميلات وإضافة زر تحميل الفيديو في يوتيوب وإرسالها إلى NovaGet",
+  "permissions": ["downloads", "storage"],
+  "host_permissions": ["http://127.0.0.1/*", "http://localhost/*"],
+  "background": { "service_worker": "background.js" },
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*", "https://m.youtube.com/*"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}
