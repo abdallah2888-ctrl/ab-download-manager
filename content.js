@@ -66,6 +66,10 @@
       }
     });
 
+    for (const ev of ["click", "dblclick", "mousedown", "mouseup", "pointerdown", "keydown", "keyup", "contextmenu"]) {
+      box.addEventListener(ev, (e) => e.stopPropagation());
+    }
+
     box.append(sel, btn);
     return box;
   }
@@ -76,16 +80,17 @@
       if (box) box.remove();
       return;
     }
-    const anchor =
-      document.querySelector("ytd-watch-metadata #actions") ||
-      document.querySelector("ytd-watch-metadata #top-level-buttons-computed");
+    // فوق الفيديو نفسه (داخل المشغّل)؛ وفي الشورتس زر عائم
+    const player = location.pathname === "/watch" ? document.querySelector("#movie_player") : null;
 
     if (!box) box = build();
 
-    if (anchor) {
+    if (player) {
       box.classList.remove("novaget-floating");
-      if (box.parentElement !== anchor) anchor.prepend(box);
+      box.classList.add("novaget-overlay");
+      if (box.parentElement !== player) player.appendChild(box);
     } else if (box.parentElement !== document.body) {
+      box.classList.remove("novaget-overlay");
       box.classList.add("novaget-floating");
       document.body.appendChild(box);
     }

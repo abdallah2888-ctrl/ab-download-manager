@@ -20,6 +20,15 @@ chrome.runtime.onMessage.addListener((msg, _sender, sendResponse) => {
   }
 });
 
+async function cookieHeader(url) {
+  try {
+    const cs = await chrome.cookies.getAll({ url });
+    return cs.map((c) => `${c.name}=${c.value}`).join("; ");
+  } catch (_e) {
+    return "";
+  }
+}
+
 // التقاط التحميلات العادية من كروم
 chrome.downloads.onCreated.addListener(async (item) => {
   const url = item.finalUrl || item.url;
@@ -28,6 +37,11 @@ chrome.downloads.onCreated.addListener(async (item) => {
     const ok = await post("/download", {
       url,
       filename: item.filename ? item.filename.split(/[\\/]/).pop() : "",
+      headers: {
+        Cookie: await cookieHeader(url),
+        Referer: item.referrer || "",
+        "User-Agent": navigator.userAgent,
+      },
     });
     if (ok) {
       chrome.downloads.cancel(item.id, () => chrome.downloads.erase({ id: item.id }));
